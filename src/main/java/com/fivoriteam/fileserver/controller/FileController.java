@@ -51,7 +51,7 @@ public class FileController {
     public String uploadFile(@RequestParam("file")  MultipartFile file ,@PathVariable String userid) {
         String fileName = fileStorageService.storeFile(file,userid);
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("FileService/downloadFile/" + userid + "/")
+                .path("downloadFile/" + userid + "/")
                 .path(fileName)
                 .toUriString();
         return fileDownloadUri;
